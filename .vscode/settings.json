@@ -54,6 +54,6 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "code-runner.executorMap": {
-    "cpp": "cd $dir; g++ -std=c++17 -O2 -Wall $fileName -o $fileNameWithoutExt.exe; if ($?) { & .\\$fileNameWithoutExt.exe }"
+    "cpp": "cd $dir; g++ -std=c++17 -O2 -Wall \"$fileName\" -o \"$fileNameWithoutExt.exe\"; if ($?) { & \".\\$fileNameWithoutExt.exe\" }"
   }
 }
