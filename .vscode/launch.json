@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Faiz/DSA",
-      "program": "d:/Faiz/DSA/build/Debug/outDebug",
+      "cwd": "d:/Faiz/DSA/DSA/OOPs lecture/Constructors",
+      "program": "d:/Faiz/DSA/DSA/OOPs lecture/Constructors/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
