@@ -23,6 +23,13 @@ public:
     tuple<int,int,int> getdata() {   // return multiple values as a tuple(any numbers of values returns )
         return make_tuple(a, b, c);
     }
+     void change(int newB) {  
+        // this function allows us to change the protected value 'b'
+        b = newB;
+     }
+     int sum() {        // <-- New function that RETURNS something
+        return a + b + c;
+    }
 /*
 if i want to return multiple values so it can also done using this 
     Values getdata() {
@@ -35,16 +42,21 @@ if i want to return multiple values so it can also done using this
 int main() {
     H obj;
     obj.setdata(10, 20, 30);
+    obj.change(50); // ✅ Change b to 50 using change() function
 
     int x, y, z;
     tie(x, y, z) = obj.getdata();   // unpack the returned tuple
+    int result = obj.sum();   // Call the function and store the return value
 
     cout << "The value of a is: " << x << endl;
     cout << "The value of b is: " << y << endl;
     cout << "The value of c is: " << z << endl;
+    cout << "The sum of a, b, and c is: " << result << endl;
+
 
     return 0;
-}/* 
+}
+/* 
 in access specifiers.cpp we write direct void getdata() becase where cout can
  be done by inside the class directly but here i want to do it in main so i make 
  it like this*/
