@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-class student {
+class student { // class creation
     public :
     int roll;
     string name;
@@ -8,7 +8,7 @@ class student {
     double percentage;
 };
 int main (){
-    student s1;
+    student s1;  //object creation of student class
     s1.name= "papa";
     s1.roll = 23;
     s1.group = 'A';
