@@ -45,13 +45,13 @@ int main() {
     printVectorInfo(v);  // Vector size becomes 0, capacity remains
 
     return 0;  // Indicate successful program termination
-}
+}   
 /*🔹 size()
 Returns the number of elements currently in the vector.
 🔹 capacity()
 Returns the number of elements the vector can hold before needing to allocate more memory.
 
-Notes:
+Notes: doubling strategy
 Initially, when you initialize the vector with 5 elements, size == capacity == 5.
 If you add elements using v.push_back(), the vector may increase its capacity in to double own capacity, often doubling it to minimize reallocations.
 
