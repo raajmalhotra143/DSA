@@ -58,7 +58,7 @@ void getdata() {
     cout << "The value of b is: " << b << endl;
     cout << "The value of c is: " << c << endl;
 }
-This function prints all the member variable values.
+A getter is a function that gets or retrieves the value of private/protected variables of the class. which are setted by the setter function.
 It can access private and protected members since it is part of the class.
 The main() function:- 
 int main() {
@@ -86,15 +86,17 @@ Calls the setter function to assign: a = 10, b = 20, c = 30.
 
 NOTE concepts:- 
 1.  Why the function is void?
-void means :- “This function does not return any value.”
+void means :- “This function does not return any value. OR it does not give any value back to the calling code
+(like main() in this case)
 in this code :- 
 void getdata() {
     cout << "The value of a is: " << a << endl;
     cout << "The value of b is: " << b << endl;
     cout << "The value of c is: " << c << endl;
 }
-The purpose of getdata() is only to print the data, not to calculate or return anything.
-Since it doesn’t need to give a value back to the caller (main()), we make it void.
+A getter is a function that gets or retrieves the value of private/protected variables of
+the class. which are setted by the setter function.Since it doesn’t need to give a value 
+back to the caller (main()), we make it void.
 2.  but in here:- 
   int sum() {        // <-- New function that RETURNS something
         return a + b + c;
@@ -116,7 +118,7 @@ all member functions have access to all data members of their class.
 ❌ But if you tried to use a or b directly from main(), it would fail —
 because main() is outside the class. like this cout << obj.a+obj.b+obj>c; // Error!
 because a is private and b is protected.and only c is public.
-5.   “Can I make it so that I print in main(), not in getdata()?”
+5.“Can I make it so that I print in main(), not in getdata()?”
 🧱 Option 1 — Return each value individually like this 
  void setdata(int a1, int b1, int c1) {
         a = a1;
