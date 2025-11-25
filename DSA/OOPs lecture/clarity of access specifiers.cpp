@@ -57,6 +57,6 @@ int main() {
     return 0;
 }
 /* 
-in access specifiers.cpp we write direct void getdata() becase where cout can
- be done by inside the class directly but here i want to do it in main so i make 
- it like this*/
+in access specifiers.cpp we write direct void getdata() because where cout can
+be done by inside the class directly but here i want to do it in main so i make 
+it like this*/

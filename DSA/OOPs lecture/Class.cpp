@@ -12,14 +12,13 @@ class student {
         char group;        // Data member to store the group or section
         double percentage; // Data member to store the student's percentage
 
-        // Note: In this example, there are NO MEMBER FUNCTIONS defined inside
-        // the class. A member function would be a function that performs an
-        // operation on the data members (for example, to display or modify them).
-        //
-        // Example (not in this code):
-        // void display() {
-        //     cout << name << " " << roll << endl;
-        // }
+        /* Note: In this example, there are NO MEMBER FUNCTIONS defined inside
+        the class. A member function would be a function that performs an
+        operation on the data members (for example, to display or modify them).        
+        Example (not in this code):
+        void display() {
+             cout << name << " " << roll << endl;
+         } */
 };
 
 // The main function is the starting point of the program
