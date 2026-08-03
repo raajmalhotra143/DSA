@@ -1,0 +1,9 @@
+# Build artifacts and compiled binaries
+All exe files/
+all exe files/
+build/
+**/build/
+*.exe
+*.o
+*.out
+outDebug
