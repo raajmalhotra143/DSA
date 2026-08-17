@@ -1,62 +1,100 @@
 {
-  "C_Cpp_Runner.cCompilerPath": "gcc",
-  "C_Cpp_Runner.cppCompilerPath": "g++",
-  "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.cStandard": "",
-  "C_Cpp_Runner.cppStandard": "",
-  "C_Cpp_Runner.msvcBatchPath": "",
-  "C_Cpp_Runner.useMsvc": false,
-  "C_Cpp_Runner.warnings": [
-    "-Wall",
-    "-Wextra",
-    "-Wpedantic",
-    "-Wshadow",
-    "-Wformat=2",
-    "-Wcast-align",
-    "-Wconversion",
-    "-Wsign-conversion",
-    "-Wnull-dereference"
-  ],
-  "C_Cpp_Runner.msvcWarnings": [
-    "/W4",
-    "/permissive-",
-    "/w14242",
-    "/w14287",
-    "/w14296",
-    "/w14311",
-    "/w14826",
-    "/w44062",
-    "/w44242",
-    "/w14905",
-    "/w14906",
-    "/w14263",
-    "/w44265",
-    "/w14928"
-  ],
-  "C_Cpp_Runner.enableWarnings": true,
-  "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.linkerArgs": [],
-  "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
-  "C_Cpp_Runner.excludeSearch": [
-    "**/build",
-    "**/build/**",
-    "**/.*",
-    "**/.*/**",
-    "**/.vscode",
-    "**/.vscode/**"
-  ],
-  "C_Cpp_Runner.useAddressSanitizer": false,
-  "C_Cpp_Runner.useUndefinedSanitizer": false,
-  "C_Cpp_Runner.useLeakSanitizer": false,
-  "C_Cpp_Runner.showCompilationTime": false,
-  "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c17",
+  "code-runner.runInTerminal": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.preserveFocus": false,
+  "code-runner.saveFileBeforeRun": true,
   "code-runner.executorMap": {
-    "cpp": "mkdir -p \"$workspaceRoot/All exe files\" && g++ -std=c++17 -O2 -Wall $fullFileName -o \"$workspaceRoot/All exe files/$fileNameWithoutExt\" && \"$workspaceRoot/All exe files/$fileNameWithoutExt\""
+    "c": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & gcc -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out -Force -ErrorAction SilentlyContinue } }",
+    "cpp": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & g++ -std=c++17 -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out -Force -ErrorAction SilentlyContinue } }"
   }
 }
+
+/*
+  ## Step 1 — Install VS Code                                                                         
+                                                                                                      
+  1. Go to https://code.visualstudio.com                                                              
+  2. Download and install it (default settings are fine)                                              
+  ──────                                                                                              
+  ## Step 2 — Install MSYS2 (provides g++ compiler)                                                   
+                                                                                                      
+  1. Go to https://www.msys2.org                                                                      
+  2. Download and run the installer → install to C:\msys64 (default path, don't change it)            
+  3. After install, the MSYS2 terminal opens — run this command:                                      
+    pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain                                     
+                                                                                                      
+  4. Press Enter to install all, then type Y and press Enter to confirm                               
+  ──────                                                                                              
+  ## Step 3 — Add g++ to Windows PATH                                                                 
+                                                                                                      
+  1. Press Win + S → search "Environment Variables" → click "Edit the system environment variables"   
+  2. Click "Environment Variables" button                                                             
+  3. Under "System variables", find Path → click Edit                                                 
+  4. Click New → paste this path:                                                                     
+    C:\msys64\ucrt64\bin                                                                              
+                                                                                                      
+  5. Click OK → OK → OK                                                                               
+  6. Restart your PC (or at minimum close and reopen any terminals)                                   
+                                                                                                      
+  │ ✅ Verify: Open PowerShell and type g++ --version — it should print the version number            
+  ──────                                                                                              
+  ## Step 4 — Install VS Code Extensions                                                              
+                                                                                                      
+  Open VS Code → go to Extensions (Ctrl+Shift+X) → search and install:                                
+                                                                                                      
+  1. C/C++ (by Microsoft)                                                                             
+  2. Code Runner (by Jun Han)                                                                         
+  ──────                                                                                              
+  ## Step 5 — Copy your project                                                                       
+                                                                                                      
+  Copy your DSA project folder to the new machine (e.g. D:\programs\DSA)                              
+  ──────                                                                                              
+  ## Step 6 — Set up .vscode/settings.json                                                            
+                                                                                                      
+  Inside your project folder, create .vscode\settings.json with this content:                         
+                                                                                                      
+    {                                                                                                 
+      "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe",                                   
+      "C_Cpp.default.cppStandard": "c++17",                                                           
+      "C_Cpp.default.cStandard": "c17",                                                               
+      "code-runner.runInTerminal": true,                                                              
+      "code-runner.clearPreviousOutput": true,                                                        
+      "code-runner.preserveFocus": false,                                                             
+      "code-runner.saveFileBeforeRun": true,                                                          
+      "code-runner.executorMap": {                                                                    
+        "c": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.       
+  Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.  
+  Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & gcc 
+  -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out -Force -   
+  ErrorAction SilentlyContinue } }",                                                                  
+        "cpp": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.     
+  Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.  
+  Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & g++ 
+  -std=c++17 -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out 
+  -Force -ErrorAction SilentlyContinue } }"                                                           
+      }                                                                                               
+    }                                                                                                 
+                                                                                                      
+  │ Tip: Since your project already has this file, just copy the whole .vscode folder along with your 
+  │ project — Step 6 is already done for you!                                                         
+  ──────                                                                                              
+  ## Step 7 — Run your code                                                                           
+                                                                                                      
+  1. Open any .cpp file in VS Code                                                                    
+  2. Press Ctrl+Alt+N to run it via Code Runner                                                       
+  3. Output shows directly in the terminal — clean, no extra headers                                  
+  ──────                                                                                              
+  ## Summary Checklist                                                                                
+                                                                                                      
+   Step                             │ What to do
+  ──────────────────────────────────┼─────────────────────────────────────────────────────────────────
+   1                                │ Install VS Code
+   2                                │ Install MSYS2 + g++ toolchain
+   3                                │ Add C:\msys64\ucrt64\bin to PATH + restart
+   4                                │ Install C/C++ and Code Runner extensions
+   5                                │ Copy your project folder
+   6                                │ Ensure .vscode/settings.json exists (copy from current machine)
+   7                                │ Run with Ctrl+Alt+N
+*/
