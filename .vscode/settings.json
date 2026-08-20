@@ -9,7 +9,8 @@
   "code-runner.executorMap": {
     "c": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & gcc -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out -Force -ErrorAction SilentlyContinue } }",
     "cpp": "& { $src = ($fullFileName -replace '^[\\\"\\'']+|[\\\"\\'']+$', ''); $base = [IO.Path]::GetFileNameWithoutExtension($src) -replace '[^\\w\\-]', '_'; $out = [IO.Path]::Combine([IO.Path]::GetTempPath(), ($base + '_' + [Diagnostics.Process]::GetCurrentProcess().Id + '.exe')); & g++ -std=c++17 -O2 -Wall $src -o $out; if ($LASTEXITCODE -eq 0) { & $out; Remove-Item -LiteralPath $out -Force -ErrorAction SilentlyContinue } }"
-  }
+  },
+  "claudeCodeChat.permissions.yoloMode": true
 }
 
 /*
