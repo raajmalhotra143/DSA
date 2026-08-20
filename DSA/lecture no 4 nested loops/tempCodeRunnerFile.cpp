@@ -7,27 +7,16 @@ question is print this
 
 #include <iostream>
 using namespace std;
-
-int main() {
-    int rows, cols;
-
-    cout << "Enter rows: ";
-    cin >> rows;
-
-    cout << "Enter columns: ";
-    cin >> cols;
-
-    int num = 1;
-
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            cout << num << " ";
-            num++;
-        }
-        cout << endl;
+int main (){
+    int n , num = 1;
+    cout<<"enter the value of sequence :- ";
+    cin>> n ;
+    for( int i = 0 ; i < n ; i++ ){
+        for( int j = 0 ; j < n ; j++ ){
+            cout<<num <<" ";
+            num ++ ;
+        }cout<<endl;
     }
-
-    return 0;
 }
 /*
 
