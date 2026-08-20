@@ -6,7 +6,7 @@ int main(){
     cout<<"enter the value of n :- ";
     cin>> n ;
     for ( int i = 0 ; i <= n ; i++ ){
-     sum += i;
+     sum += i; //{sum =sum +i}
     }
     cout<<"sum is :- "<< sum <<endl;
 }
